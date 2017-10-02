@@ -38,7 +38,6 @@ public class FoodView extends JPanel {
         foodNameField = new JTextField("Enter food eaten.");
         foodNameField.setSize(200, 50);
         foodAmountField = new JTextField("Enter amount of food Eaten");
-        amount = Double.parseDouble(foodAmountField.getText());
         moodField = new JTextField("Enter mood.");
         saveButton = new JButton("Save");
         nameBox = Box.createHorizontalBox();
@@ -95,66 +94,6 @@ public class FoodView extends JPanel {
         this.foodAndMoodLabel = foodAndMoodLabel;
     }
 
-    /**
-     * @return the dropdown
-     */
-    public JComboBox getDropdown() {
-        return dropdown;
-    }
-
-    /**
-     * @param dropdown the dropdown to set
-     */
-    public void setDropdown(JComboBox dropdown) {
-        this.dropdown = dropdown;
-    }
-
-    /**
-     * @return the recommendation
-     */
-    public JLabel getRecommendation() {
-        return recommendation;
-    }
-
-    /**
-     * @param recommendation the recommendation to set
-     */
-    public void setRecommendation(JLabel recommendation) {
-        this.recommendation = recommendation;
-    }
-    
-
-    /**
-     * @return the foodNameLabel
-     */
-    public JLabel getFoodNameLabel() {
-        return foodNameLabel;
-    }
-
-    /**
-     * @param foodNameLabel the foodNameLabel to set
-     */
-    public void setFoodNameLabel(JLabel foodNameLabel) {
-        this.foodNameLabel = foodNameLabel;
-    }
-
-    /**
-     * @return the foodAmountLabel
-     */
-    public JLabel getFoodAmountLabel() {
-        return foodAmountLabel;
-    }
-
-    /**
-     * @param foodAmountLabel the foodAmountLabel to set
-     */
-    public void setFoodAmountLabel(JLabel foodAmountLabel) {
-        this.foodAmountLabel = foodAmountLabel;
-    }
-
-    /**
-     * @return the foodNameField
-     */
     public JTextField getFoodNameField() {
         return foodNameField;
     }
@@ -179,48 +118,7 @@ public class FoodView extends JPanel {
     public void setFoodAmountField(JTextField foodAmountField) {
         this.foodAmountField = foodAmountField;
     }
-
-    /**
-     * @return the nameBox
-     */
-    public Box getNameBox() {
-        return nameBox;
-    }
-
-    /**
-     * @param nameBox the nameBox to set
-     */
-    public void setNameBox(Box nameBox) {
-        this.nameBox = nameBox;
-    }
-
-    /**
-     * @return the amountBox
-     */
-    public Box getAmountBox() {
-        return amountBox;
-    }
-
-    /**
-     * @param amountBox the amountBox to set
-     */
-    public void setAmountBox(Box amountBox) {
-        this.amountBox = amountBox;
-    }
-
-    /**
-     * @return the moodLabel
-     */
-    public JLabel getMoodLabel() {
-        return moodLabel;
-    }
-
-    /**
-     * @param moodLabel the moodLabel to set
-     */
-    public void setMoodLabel(JLabel moodLabel) {
-        this.moodLabel = moodLabel;
-    }
+ 
 
     /**
      * @return the moodField
@@ -236,19 +134,6 @@ public class FoodView extends JPanel {
         this.moodField = moodField;
     }
 
-    /**
-     * @return the moodBox
-     */
-    public Box getMoodBox() {
-        return moodBox;
-    }
-
-    /**
-     * @param moodBox the moodBox to set
-     */
-    public void setMoodBox(Box moodBox) {
-        this.moodBox = moodBox;
-    }
 
     /**
      * @return the saveButton
@@ -264,18 +149,5 @@ public class FoodView extends JPanel {
         this.saveButton = saveButton;
     }
 
-    /**
-     * @return the amount
-     */
-    public double getAmount() {
-        return amount;
-    }
-
-    /**
-     * @param amount the amount to set
-     */
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
     
 }

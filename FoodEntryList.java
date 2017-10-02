@@ -17,7 +17,7 @@ public class FoodEntryList {
     
     public FoodEntryList(){
         userFoodList = new ArrayList<>();
-        initFood = new Food("apple", 0, "happy");
+        initFood = new Food("apple", "0", "happy");
         userFoodList.add(initFood);
         userFoodList.remove(0);        
     }

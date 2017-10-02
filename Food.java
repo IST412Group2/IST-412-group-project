@@ -11,10 +11,10 @@ package foodmood;
  */
 public class Food {
     private String foodName;
-    private double foodAmount;
+    private String foodAmount;
     private String mood;
     
-    public Food(String newFoodName, double newFoodAmount, String newMood){
+    public Food(String newFoodName, String newFoodAmount, String newMood){
         foodName = newFoodName;
         foodAmount = newFoodAmount;
         mood = newMood;
@@ -22,7 +22,7 @@ public class Food {
     
     public Food(){
         foodName = "apple";
-        foodAmount = 0;
+        foodAmount = "";
         mood = "Happy";
     }
 
@@ -43,14 +43,14 @@ public class Food {
     /**
      * @return the foodAmount
      */
-    public double getFoodAmount() {
+    public String getFoodAmount() {
         return foodAmount;
     }
 
     /**
      * @param foodAmount the foodAmount to set
      */
-    public void setFoodAmount(double foodAmount) {
+    public void setFoodAmount(String foodAmount) {
         this.foodAmount = foodAmount;
     }
 
