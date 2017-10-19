@@ -1,82 +1,96 @@
 package Models;
 
-import Models.Mood;
-
 public class User {
-    private long id;
-    private String name;
-    private Mood mood;
+    private String name, username, password;
+    private FoodHistory foodsEaten;
+    private MoodHistory moodsFelt;
 
+    /*
+     * CONSTRUCTORS
+    */
+    
     /**
      * The default constructor for the User class.
      */
     public User() {
-        id = 12345646;
-        mood = null;
-        name = "User name";
+        this("Default user name", "", "");
     }
 
-    public User(String name, String mood) {
+    public User(String name, String username, String password) {
         this.name = name;
-        this.mood = new Mood();
-        this.mood.setName(mood);
-    }
-
-    /**
-     * Get the user's id.
-     * 
-     * @return long
-     */
-    public long getId() {
-        return id;
+        this.username = username;
+        this.password = password;
+        this.moodsFelt = new MoodHistory();
+        this.foodsEaten = new FoodHistory();
     }
     
-    /**
-     * Get the user's id.
-     * 
-     * @return long
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
-     * Get the user's mood model.
-     * 
-     * @return Mood
-     */
-    public Mood getMood() {
-        return mood;
-    }
-
-    /**
-     * Get the user's name string.
-     * 
-     * @return String
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the user's mood.
-     * 
-     * @param mood 
-     */
-    public void setMood(Mood mood) {
-        this.mood = mood;
-    }
-
+    /* 
+     * SETTERS
+    */
     /**
      * Set the user's name.
      * 
-     * @param name 
+     * @param name the user's name
      */
     public void setName(String name) {
         this.name = name;
     }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void changePassword(String password) {
+        this.password = password;
+    }
+    public void addFood(Food food) {
+        foodsEaten.addFood(food);
+    }
+    /**
+     * Add a new mood to the user's history.
+     * 
+     * @param mood the current mood which the user wants to add 
+     */
+    public void addMood(Mood mood) {
+        this.moodsFelt.addMood(mood);
+    }
+    
+    /*
+     * GETTERS
+    */
+    /**
+     * Get the user's name string.
+     * 
+     * @return a String of the user's name
+     */
+    public String getName() {
+        return name;
+    }
+    public String getUsername() {
+        return username;
+    }
 
+    public String getPassword() {
+        return password;
+    }
+    public FoodHistory getFoodsEaten() {
+        return foodsEaten;
+    }
+    /**
+     * Get the user's mood list.
+     * 
+     * @return a list of the user's moods
+     */
+    public MoodHistory getMoodsFelt() {
+        return moodsFelt;
+    }
+    
+    /*
+     * OTHER FUNCTIONS
+    */
+    public boolean authenticate(String username, String password) {
+        return (this.username.equals(username)) && (this.password.equals(password));
+    }
+    
     public String toString() {
-        return name + ", " + mood;
+        return name;
     }
 }

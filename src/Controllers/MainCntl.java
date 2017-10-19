@@ -1,18 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
+import Models.User;
+import Models.UserList;
 import Views.MainUI;
 
-/**
- *
- * @author Michael Heuzey
- */
 public class MainCntl {
+    private MainUI mainView;
+    private UserList users;
+    private User currentUser;
+    
     public MainCntl(){
-        new MainUI().setVisible(true);
+        new MainUI(this).setVisible(true);
+    }
+    
+    public void correlateFoodMood() {
+        
     }
 }

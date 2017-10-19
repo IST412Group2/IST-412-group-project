@@ -1,14 +1,17 @@
 package Views;
 
+import Controllers.MainCntl;
 import java.awt.CardLayout;
 
 public class MainUI extends javax.swing.JFrame {
-
+    private MainCntl parentCntl;
+    
     /**
      * Creates new form MainUI
      */
-    public MainUI() {
+    public MainUI(MainCntl parentCntl) {
         initComponents();
+        this.parentCntl = parentCntl;
         setVisible(true);
     }
 
