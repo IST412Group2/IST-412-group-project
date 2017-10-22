@@ -1,5 +1,14 @@
-package Models;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package model;
 
+/**
+ *
+ * @author Matt
+ */
 public class Food {
     private String name;
     private double quantity;
@@ -14,8 +23,8 @@ public class Food {
         this("Default Food", 1);
     }
     public Food(String name, double quantity) {
-        this.name = name;
-        this.quantity = quantity;
+        name = name;
+        quantity = quantity;
     }
 
     /*

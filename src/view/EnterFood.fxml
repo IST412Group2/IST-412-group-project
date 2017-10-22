@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.EnterFoodController">
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="0.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
+         <children>
+            <MenuButton fx:id="UserMenu" mnemonicParsing="false" text="Username">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Account" />
+                <MenuItem mnemonicParsing="false" text="Log out" />
+              </items>
+            </MenuButton>
+         </children>
+      </HBox>
+   </top>
+   <center>       
+       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+             <VBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <DatePicker fx:id="dp" onAction="#pickDate"  />
+                  <Label fx:id="enterFoodLabel" text="Enter Food Eaten: " textFill="BLACK" visible="true" />
+                  <Label fx:id="enterAmountLabel" text="Enter Amount Eaten: " textFill="BLACK" visible="true" />
+                  <Button mnemonicParsing="false" onAction="#handleBack" text="Back" />
+                  <Label fx:id="attentionLabel" text="ATTENTION: Site Under Construction!" textFill="RED" visible="false" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" spacing="4.0">
+               <children>
+                  <TextField fx:id="enterFoodField" promptText="Enter Food Eaten" />
+                  <TextField fx:id="enterFoodAmountField" promptText="Enter Amount of Food Eaten" />
+                  <Button mnemonicParsing="false" onAction="#handleNext" text="Next" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

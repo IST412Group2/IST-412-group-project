@@ -1,11 +1,11 @@
 
-import Models.Food;
-import Models.Mood;
-import Models.User;
+import model.Food;
+import model.Mood;
+import model.User;
 
 
 public class TestControl {
-    public TestControl() {
+    public TestControl() {/*
         //
         // Test Food class
         //
@@ -52,5 +52,5 @@ public class TestControl {
         System.out.println("Current mood is: " + u.getMood());
         u.setMood(new Mood("sad"));
         System.out.println("New mood should be sad: " + u.getMood());
-    }
+    */}
 }

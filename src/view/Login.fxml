@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.LoginController">
+   <children>
+      <VBox alignment="CENTER" fillWidth="false" spacing="4.0">
+         <children>
+            <Label fx:id="failedLabel" text="Username and password do not match or you do not have an account!" textFill="RED" visible="false" />
+            <TextField fx:id="usernameField" promptText="Username" />
+            <PasswordField fx:id="passwordField" promptText="Password" />
+            <Button mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+            <Button mnemonicParsing="false" onAction="#presentRegisterAccount" text="Register New Account" />
+            
+         </children>
+      </VBox>
+   </children>
+</HBox>

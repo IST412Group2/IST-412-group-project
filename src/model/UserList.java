@@ -1,10 +1,6 @@
-/* TODO
- * 
- * ADD IMPLEMENTATION FOR SERIALIZATION
- */
+package model;
 
-package Models;
-
+import model.User;
 import java.util.ArrayList;
 
 public class UserList {
@@ -28,6 +24,8 @@ public class UserList {
         }
         return null;
     }
+    
+  
     public boolean removeUser(String name) {
         if (getUser(name) == null) return false;
         else return users.remove(getUser(name));
@@ -39,5 +37,28 @@ public class UserList {
         users.add(new User("Michael Heuzey", "mheuzey", "mheuzey"));
         users.add(new User("Matt Abazia", "mabazia", "mabazia"));
         users.add(new User("Erik Galloway", "egalloway", "egalloway"));
+    }
+
+    /**
+     * @return the users
+     */
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    /**
+     * @param users the users to set
+     */
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+    
+    public User authenticate(String username, String password) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).authenticate(username, password)) {
+                return users.get(i);
+            }
+        }
+        return null;
     }
 }
