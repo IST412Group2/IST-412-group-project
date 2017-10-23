@@ -11,6 +11,12 @@
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="0.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
          <children>
+            <MenuButton fx:id="color" mnemonicParsing="false" text="Color">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Color" onAction="#handleColor"/>
+                <MenuItem mnemonicParsing="false" text="Monochrome" onAction="#handleMono"/>
+              </items>
+            </MenuButton>
             <MenuButton fx:id="UserMenu" mnemonicParsing="false" text="Username">
               <items>
                 <MenuItem mnemonicParsing="false" text="Account" />

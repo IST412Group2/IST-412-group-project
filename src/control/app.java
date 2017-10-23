@@ -5,6 +5,13 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class app extends Application {
@@ -17,8 +24,9 @@ public class app extends Application {
         this.scene = new Scene(root);
         stage.setTitle("Food Mood");
         stage.setScene(scene);
-        stage.setWidth(800);
-        stage.setHeight(600);
+        scene.getStylesheets().add(app.class.getResource("/view/background.css").toExternalForm());
+        stage.setWidth(600);
+        stage.setHeight(450);
         stage.show();
     }
 

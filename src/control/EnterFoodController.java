@@ -2,6 +2,8 @@ package control;
 
 import com.sun.javafx.binding.Logging;
 import control.commands.AddFoodCommand;
+import control.commands.ColorCommand;
+import control.commands.MonoCommand;
 import model.Food;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -29,7 +31,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 
 public class EnterFoodController implements Initializable {
-    private Food fd;
+    //private Food fd;
     //private FoodHistory fh;
     
     @FXML
@@ -71,17 +73,14 @@ public class EnterFoodController implements Initializable {
             //app.currentUser.getFoodsEaten().addFood(fd);
             new AddFoodCommand(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
-            alert.setHeaderText("Food added");
             alert.setContentText("Food added");
             alert.showAndWait();
-            if (alert.getResult() == ButtonType.OK) {
-                System.err.println("got here: alert button pressed");
+            if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
                 handleBack(event);
             }
         }
         catch(java.lang.NumberFormatException e){
             Alert alert = new Alert(AlertType.ERROR, "Invalid number");
-            alert.setHeaderText("Invalid number");
             alert.setContentText("Please enter a valid number.");
             alert.showAndWait();
         }
@@ -107,5 +106,23 @@ public class EnterFoodController implements Initializable {
             System.err.println("other exception");
             System.out.println(exception.getCause());
         }
+    }
+    
+    /**
+     * Handles the color button by choosing a color background.
+     * @param event The button click event.
+     */
+    @FXML
+    public void handleColor(ActionEvent event) {
+        new ColorCommand().execute();
+    }
+    
+    /**
+     * Handles the mono button by choosing a monochrome background.
+     * @param event The button click event.
+     */
+    @FXML
+    public void handleMono(ActionEvent event) {
+        new MonoCommand().execute();
     }
 }

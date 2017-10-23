@@ -1,9 +1,7 @@
 package control.commands;
 
 import control.app;
-//import static java.lang.Double.parseDouble;
 import model.Food;
-
 
 public class AddFoodCommand {
     private String foodName;
@@ -16,6 +14,6 @@ public class AddFoodCommand {
     
     public void execute() {
         Food fd = new Food(foodName, quantity);
-            app.currentUser.getFoodsEaten().addFood(fd);
+        app.currentUser.getFoodsEaten().addFood(fd);
     }
 }

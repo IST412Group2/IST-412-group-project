@@ -1,5 +1,7 @@
 package control;
 
+import control.commands.ColorCommand;
+import control.commands.MonoCommand;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,6 +39,24 @@ public class NavController implements Initializable {
     @FXML
     public void presentEnterFood(ActionEvent event) throws IOException {
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterFood.fxml")));
+    }
+    
+    /**
+     * Handles the color button by choosing a color background.
+     * @param event The button click event.
+     */
+    @FXML
+    public void handleColor(ActionEvent event) {
+        new ColorCommand().execute();
+    }
+    
+    /**
+     * Handles the mono button by choosing a monochrome background.
+     * @param event The button click event.
+     */
+    @FXML
+    public void handleMono(ActionEvent event) {
+        new MonoCommand().execute();
     }
     
     /**
