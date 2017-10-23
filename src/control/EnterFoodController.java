@@ -1,6 +1,7 @@
 package control;
 
 import com.sun.javafx.binding.Logging;
+import control.commands.AddFoodCommand;
 import model.Food;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -66,8 +67,9 @@ public class EnterFoodController implements Initializable {
             //FoodMood_M03_A04.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Mood.fxml")));
             //attentionLabel.setVisible(true);
             //double amount = parseDouble(enterAmountField.getText());
-            fd = new Food(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText()));
-            app.currentUser.getFoodsEaten().addFood(fd);
+            //fd = new Food(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText()));
+            //app.currentUser.getFoodsEaten().addFood(fd);
+            new AddFoodCommand(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
             alert.setHeaderText("Food added");
             alert.setContentText("Food added");

@@ -2,6 +2,7 @@ package model;
 
 import model.User;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class UserList {
     private ArrayList<User> users;
@@ -54,10 +55,11 @@ public class UserList {
     }
     
     public User authenticate(String username, String password) {
-        for (int i = 0; i < users.size(); i++) {
-            if (users.get(i).authenticate(username, password)) {
-                return users.get(i);
-            }
+        User ret = null;
+        Iterator<User> iter = users.iterator();
+        while (iter.hasNext()) {
+            ret = iter.next();
+            if (ret.authenticate(username, password)) return ret;
         }
         return null;
     }
