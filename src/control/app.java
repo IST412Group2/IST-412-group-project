@@ -31,4 +31,3 @@ public class app extends Application {
     }
 }
 
-// this is some demonstration changaes
