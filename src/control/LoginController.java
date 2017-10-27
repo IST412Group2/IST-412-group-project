@@ -1,10 +1,7 @@
 package control;
 
-import model.UserList;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.UserList;
 
 public class LoginController implements Initializable {
     //private final HashMap<String, String> users = new HashMap<>();
@@ -44,10 +42,9 @@ public class LoginController implements Initializable {
     @FXML
     private void handleLogin(ActionEvent event) throws IOException {
         app.currentUser = userList.authenticate(usernameField.getText(), passwordField.getText());
-        if(app.currentUser != null){
+        if (app.currentUser != null){
             app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Nav.fxml")));
-        }
-        else {
+        } else {
             failedLabel.setVisible(true);
         }
     }

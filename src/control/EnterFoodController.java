@@ -1,39 +1,24 @@
 package control;
 
-import com.sun.javafx.binding.Logging;
+import static java.lang.Double.parseDouble;
+
 import control.commands.AddFoodCommand;
 import control.commands.ColorCommand;
 import control.commands.MonoCommand;
-import model.Food;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import static java.lang.Double.parseDouble;
 import java.net.URL;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
-import java.util.Iterator;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class EnterFoodController implements Initializable {
-    //private Food fd;
-    //private FoodHistory fh;
-    
     @FXML
     private Label enterFoodLabel;
     @FXML
@@ -66,11 +51,6 @@ public class EnterFoodController implements Initializable {
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
         try{
-            //FoodMood_M03_A04.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Mood.fxml")));
-            //attentionLabel.setVisible(true);
-            //double amount = parseDouble(enterAmountField.getText());
-            //fd = new Food(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText()));
-            //app.currentUser.getFoodsEaten().addFood(fd);
             new AddFoodCommand(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
             alert.setContentText("Food added");
@@ -78,11 +58,11 @@ public class EnterFoodController implements Initializable {
             if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
                 handleBack(event);
             }
-        }
-        catch(java.lang.NumberFormatException e){
-            Alert alert = new Alert(AlertType.ERROR, "Invalid number");
-            alert.setContentText("Please enter a valid number.");
-            alert.showAndWait();
+        } catch(java.lang.NumberFormatException e){
+            //Alert alert = new Alert(AlertType.ERROR, "Invalid number");
+            //alert.setContentText("Please enter a valid number.");
+            //alert.showAndWait();
+            new Alert(AlertType.ERROR, "Please enter a valid number").showAndWait();
         }
     }
     
