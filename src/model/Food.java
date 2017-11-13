@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author Matt
- */
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Food {
-    private String name;
-    private double quantity;
+    private SimpleStringProperty name;
+    private SimpleDoubleProperty quantity;
 
     /* 
      *CONSTRUCTORS
@@ -23,8 +17,8 @@ public class Food {
         this("Default Food", 1);
     }
     public Food(String name, double quantity) {
-        name = name;
-        quantity = quantity;
+        this.name = new SimpleStringProperty(name);
+        this.quantity = new SimpleDoubleProperty(quantity);
     }
 
     /*
@@ -37,7 +31,7 @@ public class Food {
      * @return String The name of food.
      */
     public String getName() {
-        return name;
+        return name.get();
     }
 
     /**
@@ -46,6 +40,21 @@ public class Food {
      * @return int The number of servings.
      */
     public double getQuantity() {
-        return quantity;
+        return quantity.get();
+    }
+    
+    /*
+     * SETTERS
+    */
+    public void setName(String name) {
+        this.name.set(name);
+    }
+    
+    public void setQuantity(double quantity) {
+        this.quantity.set(quantity);
+    }
+    
+    public String toString() {
+        return name + ": " + quantity;
     }
 }

@@ -1,25 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
-
-/**
- *
- * @author Matt
- */
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-
-public class Mood {
+public class MoodType {
     private ArrayList<String> moodArray;
     private HashMap<Integer, String> moodMap;
 
-    public Mood() {
+    public MoodType() {
         moodArray = new ArrayList<>();
         moodArray.add("Ecstatic");
         moodArray.add("Very Happy");
@@ -48,8 +37,6 @@ public class Mood {
         }
         
         return moodMap;
-        
-        
     }
 
     /**

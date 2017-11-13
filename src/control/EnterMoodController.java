@@ -1,5 +1,6 @@
 package control;
 
+import control.commands.AddMoodCommand;
 import static java.lang.Double.parseDouble;
 
 import control.commands.AddFoodCommand;
@@ -18,21 +19,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class EnterFoodController implements Initializable {
+public class EnterMoodController implements Initializable {
     @FXML
-    private Label enterFoodLabel;
-    @FXML
-    private Label enterAmountLabel;
-    @FXML
-    private TextField enterFoodField;
-    @FXML
-    private TextField enterFoodAmountField;
-    @FXML
-    private Label attentionLabel;
+    private TextField enterMoodField;
     @FXML
     private DatePicker dp;
-    //@FXML
-    //private Label showDateLabel;
 
     /**
      * Initializes the controller class.
@@ -50,19 +41,12 @@ public class EnterFoodController implements Initializable {
     
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
-        try{
-            new AddFoodCommand(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
-            Alert alert = new Alert(AlertType.INFORMATION, "Information");
-            alert.setContentText("Food added");
-            alert.showAndWait();
-            if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
-                handleBack(event);
-            }
-        } catch(java.lang.NumberFormatException e){
-            //Alert alert = new Alert(AlertType.ERROR, "Invalid number");
-            //alert.setContentText("Please enter a valid number.");
-            //alert.showAndWait();
-            new Alert(AlertType.ERROR, "Please enter a valid number").showAndWait();
+        new AddMoodCommand(enterMoodField.getText()).execute();
+        Alert alert = new Alert(AlertType.INFORMATION, "Information");
+        alert.setContentText("Mood added");
+        alert.showAndWait();
+        if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
+            handleBack(event);
         }
     }
     

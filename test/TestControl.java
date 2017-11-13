@@ -1,6 +1,6 @@
 
 import model.Food;
-import model.Mood;
+import model.MoodType;
 import model.User;
 
 

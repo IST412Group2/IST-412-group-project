@@ -1,28 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
-/**
- *
- * @author Matt
- */
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Iterator;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class FoodHistory {
-    private ArrayList<Food> listOfFoods;
+    private ObservableList<Food> listOfFoods;
     private ArrayList<LocalDate> listOfDatesEaten;
     
     public FoodHistory() {
-        listOfFoods = new ArrayList<Food>();
+        listOfFoods = FXCollections.observableArrayList();
         listOfDatesEaten = new ArrayList<LocalDate>();
     }
     
-    public ArrayList<Food> addFood(Food food) {
+    public ObservableList<Food> addFood(Food food) {
         listOfFoods.add(food);
         return listOfFoods;
     }
@@ -31,24 +24,17 @@ public class FoodHistory {
         return listOfDatesEaten;
     }
     
-//    public ArrayList<Food> getFoods() {
-//        return listOfFoods;
-//    }
-//    public ArrayList<Date> getDatesEaten() {
-//        return listOfDatesEaten;
-//    }
-
     /**
      * @return the listOfFoods
      */
-    public ArrayList<Food> getListOfFoods() {
+    public ObservableList<Food> getListOfFoods() {
         return listOfFoods;
     }
 
     /**
      * @param listOfFoods the listOfFoods to set
      */
-    public void setListOfFoods(ArrayList<Food> listOfFoods) {
+    public void setListOfFoods(ObservableList<Food> listOfFoods) {
         this.listOfFoods = listOfFoods;
     }
 
@@ -64,5 +50,14 @@ public class FoodHistory {
      */
     public void setListOfDatesEaten(ArrayList<LocalDate> listOfDatesEaten) {
         this.listOfDatesEaten = listOfDatesEaten;
+    }
+    
+    public String toString() {
+        String ret = "";
+        Iterator<Food> iter = listOfFoods.iterator();
+        while(iter.hasNext()) {
+            ret += iter.next() + "\n";
+        }
+        return ret;
     }
 }

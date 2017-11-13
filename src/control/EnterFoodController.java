@@ -20,19 +20,11 @@ import javafx.scene.control.TextField;
 
 public class EnterFoodController implements Initializable {
     @FXML
-    private Label enterFoodLabel;
-    @FXML
-    private Label enterAmountLabel;
-    @FXML
     private TextField enterFoodField;
     @FXML
     private TextField enterFoodAmountField;
     @FXML
-    private Label attentionLabel;
-    @FXML
     private DatePicker dp;
-    //@FXML
-    //private Label showDateLabel;
 
     /**
      * Initializes the controller class.

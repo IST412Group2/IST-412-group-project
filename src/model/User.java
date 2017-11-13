@@ -1,21 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
-/**
- *
- * @author Matt
- */
 public class User {
     private String name, username, password;
     private FoodHistory foodsEaten;
-//    private MoodHistory moodsFelt;
+    private MoodHistory moodsFelt;
 
     /*
      * CONSTRUCTORS
@@ -32,7 +22,7 @@ public class User {
         this.name = name;
         this.username = username;
         this.password = password;
-//        this.moodsFelt = new MoodHistory();
+        this.moodsFelt = new MoodHistory();
         this.foodsEaten = new FoodHistory();
     }
     
@@ -64,8 +54,8 @@ public class User {
      * 
      * @param mood the current mood which the user wants to add 
      */
-    /*public void addMood(Mood mood) {
-        this.moodsFelt.addMood(mood);
+    public void addMood(Mood mood) {
+        moodsFelt.addMood(mood);
     }
     
     /*
@@ -94,7 +84,7 @@ public class User {
      * 
      * @return a list of the user's moods
      */
-    /*public MoodHistory getMoodsFelt() {
+    public MoodHistory getMoodsFelt() {
         return moodsFelt;
     }
     

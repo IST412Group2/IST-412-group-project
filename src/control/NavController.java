@@ -12,14 +12,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 public class NavController implements Initializable {
-//    @FXML
-//    private Button newEntryButton;
-//    @FXML
-//    private Button existingDataButton;
-//    @FXML
-//    private Button settingsButton;
-//    @FXML
-//    private Button quitButton;
     /**
      * Initializes the controller class.
      * @param url The location to resolve relative paths of resources.
@@ -30,7 +22,7 @@ public class NavController implements Initializable {
     }
 
     /**
-     * Handles the Make New Entry types nav button by loading the Enter Food view
+     * Handles the Enter Food types nav button by loading the Enter Food view
      * and setting it as the root scene node.
      * @param event The button click event.
      * @throws java.io.IOException
@@ -38,6 +30,17 @@ public class NavController implements Initializable {
     @FXML
     public void presentEnterFood(ActionEvent event) throws IOException {
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterFood.fxml")));
+    }
+    
+    /**
+     * Handles the Enter Mood types nav button by loading the Enter Food view
+     * and setting it as the root scene node.
+     * @param event The button click event.
+     * @throws java.io.IOException
+     */
+    @FXML
+    public void presentEnterMood(ActionEvent event) throws IOException {
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterMood.fxml")));
     }
     
     /**
@@ -66,7 +69,7 @@ public class NavController implements Initializable {
      */
     @FXML
     public void presentDataCorrelation(ActionEvent event) throws IOException {
-        //FoodMood_M03_A04.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/DataCorrelation.fxml")));
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/ReviewData.fxml")));
     }
     
     /**
