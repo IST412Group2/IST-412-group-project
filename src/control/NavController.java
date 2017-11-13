@@ -89,6 +89,6 @@ public class NavController implements Initializable {
      */
     @FXML
     public void handleQuit(ActionEvent event) {
-        Platform.exit();
+        app.quit();
     }
 }

@@ -1,10 +1,10 @@
 package model;
 
-import model.User;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class UserList {
+public class UserList implements Serializable{
     private ArrayList<User> users;
     
     public UserList() {

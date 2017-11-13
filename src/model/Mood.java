@@ -1,6 +1,8 @@
 package model;
 
-public class Mood {
+import java.io.Serializable;
+
+public class Mood implements Serializable{
     private String name;
     
     public Mood() {

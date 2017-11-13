@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class FoodHistory {
+public class FoodHistory implements Serializable{
     private ObservableList<Food> listOfFoods;
     private ArrayList<LocalDate> listOfDatesEaten;
     

@@ -15,7 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class EnterFoodController implements Initializable {
@@ -51,35 +50,10 @@ public class EnterFoodController implements Initializable {
                 handleBack(event);
             }
         } catch(java.lang.NumberFormatException e){
-            //Alert alert = new Alert(AlertType.ERROR, "Invalid number");
-            //alert.setContentText("Please enter a valid number.");
-            //alert.showAndWait();
             new Alert(AlertType.ERROR, "Please enter a valid number").showAndWait();
         }
     }
-    
-    // handler for the calendar button
-    public void pickDate(ActionEvent event){
-        try{
-            //LocalDate ld = dp.getValue();
-            //showDateLabel.setText(ld.toString());
-            //app.currentUser.getFoodsEaten().addDate(ld);
-        }
-        catch(java.lang.NullPointerException exception){
-            System.err.println("nullpointerexception here");
-            //System.err.println("perhaps it's showdatelabel?");
-            //System.err.println(showDateLabel);
-            //System.err.println(fh);
-            System.err.println(exception.getCause());
-        }
-        catch (Throwable exception)
-        {
-             //Catch other Throwables.
-            System.err.println("other exception");
-            System.out.println(exception.getCause());
-        }
-    }
-    
+        
     /**
      * Handles the color button by choosing a color background.
      * @param event The button click event.

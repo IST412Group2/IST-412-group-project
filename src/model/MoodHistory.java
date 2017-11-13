@@ -1,12 +1,13 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class MoodHistory {
+public class MoodHistory implements Serializable{
     private ObservableList<Mood> listOfMoods;
     private ArrayList<LocalDate> listOfDatesFelt;
     

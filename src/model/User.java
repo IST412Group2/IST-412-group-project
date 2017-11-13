@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class User {
+public class User implements Serializable{
     private String name, username, password;
     private FoodHistory foodsEaten;
     private MoodHistory moodsFelt;

@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class Food {
+public class Food implements Serializable{
     private SimpleStringProperty name;
     private SimpleDoubleProperty quantity;
 
