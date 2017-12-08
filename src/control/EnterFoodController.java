@@ -49,6 +49,10 @@ public class EnterFoodController implements Initializable {
     
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterMood.fxml")));
+    }
+    
+    public void handleSave(ActionEvent event) throws IOException{
         try{
             new AddFoodCommand(enterDateField.getText() + " " + enterTimeField.getText(),
                     enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
@@ -65,7 +69,8 @@ public class EnterFoodController implements Initializable {
             new Alert(AlertType.ERROR, "Invalid date/time format").showAndWait();
         } 
     }
-        
+    
+    
     /**
      * Handles the color button by choosing a color background.
      * @param event The button click event.

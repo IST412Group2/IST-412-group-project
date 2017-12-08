@@ -52,7 +52,8 @@
                         <Label fx:id="enterFoodLabel" text="Enter Food Eaten: " textFill="BLACK" visible="true" />
                         <TextField fx:id="enterFoodField" promptText="Enter Food Eaten" />
                         <Label fx:id="enterAmountLabel" text="Enter Amount Eaten: " textFill="BLACK" visible="true" />
-                        <TextField fx:id="enterFoodAmountField" promptText="Enter Amount of Food Eaten" />
+                        <TextField fx:id="enterFoodAmountField" promptText="Enter Amount of Food Eaten" /> 
+                        <Button mnemonicParsing="false" onAction="#handleSave" text="Save" />                                               
                         <Button mnemonicParsing="false" onAction="#handleNext" text="Next" />
                      </children>
                   </VBox>

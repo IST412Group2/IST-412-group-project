@@ -11,10 +11,11 @@
    <children>
       <VBox alignment="CENTER" fillWidth="false" spacing="4.0">
          <children>
-            <TextField fx:id="nameField" promptText="First Name" />
+            <TextField fx:id="nameField" promptText="Name" />
             <TextField fx:id="usernameField2" promptText="Username" />
             <PasswordField fx:id="passwordField2" promptText="Password" />
             <Button mnemonicParsing="false" onAction="#handleSave" text="Save" />
+            <Button mnemonicParsing="false" onAction="#handBacktoLogin" text="Back to Login" />
             <Label fx:id="userExistsError" text="Username and password do not match or you do not have an account!" textFill="RED" visible="false" />
             
          </children>

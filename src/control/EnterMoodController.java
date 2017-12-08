@@ -3,10 +3,16 @@ package control;
 import control.commands.AddMoodCommand;
 import control.commands.ColorCommand;
 import control.commands.MonoCommand;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +20,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import model.User;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class EnterMoodController implements Initializable {
+    private JSONArray jUsers = new JSONArray();
+    private JSONObject jUser = new JSONObject();
+    
     @FXML
     private TextField enterDateField;
     @FXML
@@ -34,11 +47,19 @@ public class EnterMoodController implements Initializable {
     
     // handler for the 'back' button
     public void handleBack(ActionEvent event) throws IOException{
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterFood.fxml")));
+    }
+    public void handleMenu(ActionEvent event) throws IOException{
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Nav.fxml")));
     }
     
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/ReviewData.fxml")));
+        
+    }
+    
+    public void handleSave(ActionEvent event) throws IOException{
         try {
             new AddMoodCommand(enterDateField.getText() + " " + enterTimeField.getText(), enterMoodField.getText()).execute();
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
@@ -70,4 +91,41 @@ public class EnterMoodController implements Initializable {
     public void handleMono(ActionEvent event) {
         new MonoCommand().execute();
     }
+    
+    /*public void appendJUser(String name, String username, String password, String fDate, String food, 
+            double quantity, String mDate, String mood ){
+        jUser.put("Username", username);
+        jUser.put("Name", name);
+        jUser.put("Password", password);
+        jUser.put("Food Date", fDate);
+        jUser.put("Food", food);
+        jUser.put("Quantity", quantity);
+        jUser.put("Mood Date", mDate);
+        jUser.put("Mood", mood);
+        
+        jUsers.add(jUser);
+    }
+    
+    public boolean moodFileBuilder() throws org.json.simple.parser.ParseException{
+        boolean fileCheck = true;    
+        try{    
+            String s = "./"+app.currentUser.getUsername()+app.currentUser.toString().length()+"food.txt";
+            File file = new File(s);
+            if(file.exists()){
+                fileCheck = false;
+            }
+            else{
+                app.write(jUsers.toJSONString(), file);
+            }
+        }
+        catch(FileNotFoundException ex){
+            System.out.println(ex.toString());
+        }
+        catch(IOException ex){
+            System.out.println(ex.toString());
+        }
+        return fileCheck;
+        
+        
+    }*/
 }

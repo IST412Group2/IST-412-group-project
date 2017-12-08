@@ -1,7 +1,9 @@
 package control;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.User;
 import model.UserList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class app extends Application {
     public static Scene scene; // primary scene for switching between controllers
@@ -45,40 +49,9 @@ public class app extends Application {
         Platform.exit();
     }
     
-    private static void persistData() {
-        FileOutputStream fos = null;
-        ObjectOutputStream out = null;
-        try {
-            fos = new FileOutputStream("./userlist.ser");
-            out = new ObjectOutputStream(fos);
-            out.writeObject(listOfUsers);
-            out.close();
-        }
-        catch(IOException ex) {
-            ex.printStackTrace();
-        }
-    }
-    
-    private static void readUsers() {
-        FileInputStream fis = null;
-        ObjectInputStream in = null;
-        try {
-            fis = new FileInputStream("./userlist.ser");
-            in = new ObjectInputStream(fis);
-            listOfUsers = (UserList)in.readObject();
-            in.close();
-            if (listOfUsers == null) {
-                System.err.println("Read error!");
-                listOfUsers = new UserList();
-            } else if(!listOfUsers.getUsers().isEmpty()){
-                 System.out.println("There are users in the user list");
-            }
-        }
-        catch(IOException ex) {
-            ex.printStackTrace();
-        }
-        catch(ClassNotFoundException ex) {
-            ex.printStackTrace();
-        }
+    public static void write(String s, File f) throws IOException{
+        FileWriter fw = new FileWriter(f, true);
+        fw.write(s);
+        fw.close();
     }
 }

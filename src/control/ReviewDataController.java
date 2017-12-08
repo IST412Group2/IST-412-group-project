@@ -57,6 +57,11 @@ public class ReviewDataController implements Initializable {
      */
     @FXML
     public void handleBack(ActionEvent event) throws IOException {
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterMood.fxml")));
+    }
+    
+    @FXML
+    public void handleMenu(ActionEvent event) throws IOException {
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Nav.fxml")));
     }
     

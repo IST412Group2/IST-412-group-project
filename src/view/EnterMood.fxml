@@ -40,6 +40,7 @@
                         <TextField fx:id="enterDateField" promptText="mm/dd/yy" />
                         <Label text="Enter time (hh:ss)" />
                         <TextField fx:id="enterTimeField" promptText="hh:ss" />
+                        <Button mnemonicParsing="false" onAction="#handleMenu" text="Menu" />                        
                         <Button mnemonicParsing="false" onAction="#handleBack" text="Back" />
                      </children>
                   </VBox>
@@ -51,6 +52,7 @@
                      <children>
                         <Label text="Enter Mood Felt" />
                         <TextField fx:id="enterMoodField" alignment="CENTER_RIGHT" promptText="Enter Mood Felt" />
+                        <Button mnemonicParsing="false" onAction="#handleSave" text="Save" />                        
                         <Button mnemonicParsing="false" onAction="#handleNext" text="Next" />
                      </children>
                   </VBox>
