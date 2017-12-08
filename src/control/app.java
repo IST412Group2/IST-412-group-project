@@ -28,6 +28,7 @@ public class app extends Application {
         scene.getStylesheets().add(app.class.getResource("/view/background.css").toExternalForm());
         stage.setWidth(600);
         stage.setHeight(450);
+        stage.setResizable(false);
         stage.show();
     }
 
@@ -81,5 +82,3 @@ public class app extends Application {
         }
     }
 }
-
-//Matt's change

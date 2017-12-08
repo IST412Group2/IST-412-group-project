@@ -7,7 +7,10 @@ import control.commands.ColorCommand;
 import control.commands.MonoCommand;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,14 +19,19 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.VBox;
+import javax.swing.border.TitledBorder;
 
 public class EnterFoodController implements Initializable {
+    @FXML
+    private TextField enterDateField;
+    @FXML
+    private TextField enterTimeField;
     @FXML
     private TextField enterFoodField;
     @FXML
     private TextField enterFoodAmountField;
-    @FXML
-    private DatePicker dp;
 
     /**
      * Initializes the controller class.
@@ -42,16 +50,20 @@ public class EnterFoodController implements Initializable {
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
         try{
-            new AddFoodCommand(enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
+            new AddFoodCommand(enterDateField.getText() + " " + enterTimeField.getText(),
+                    enterFoodField.getText(), parseDouble(enterFoodAmountField.getText())).execute();
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
             alert.setContentText("Food added");
             alert.showAndWait();
-            if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
-                handleBack(event);
-            }
+            //if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
+            //    handleBack(event);
+            //}
+            app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterFood.fxml")));
         } catch(java.lang.NumberFormatException e){
             new Alert(AlertType.ERROR, "Please enter a valid number").showAndWait();
-        }
+        } catch (ParseException ex) {
+            new Alert(AlertType.ERROR, "Invalid date/time format").showAndWait();
+        } 
     }
         
     /**

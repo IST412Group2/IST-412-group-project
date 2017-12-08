@@ -1,12 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Date;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Food implements Serializable{
     private SimpleStringProperty name;
     private SimpleDoubleProperty quantity;
+    private Date date;
 
     /* 
      *CONSTRUCTORS
@@ -15,11 +17,12 @@ public class Food implements Serializable{
      * The default Food class constructor.
      */
     public Food() {
-        this("Default Food", 1);
+        this("Default Food", 1, new Date());
     }
-    public Food(String name, double quantity) {
+    public Food(String name, double quantity, Date date) {
         this.name = new SimpleStringProperty(name);
         this.quantity = new SimpleDoubleProperty(quantity);
+        this.date = date;
     }
 
     /*
@@ -44,6 +47,15 @@ public class Food implements Serializable{
         return quantity.get();
     }
     
+    /**
+     * Get the date.
+     * 
+     * @return Date The date.
+     */
+    public Date getDate() {
+        return date;
+    }
+    
     /*
      * SETTERS
     */
@@ -55,7 +67,11 @@ public class Food implements Serializable{
         this.quantity.set(quantity);
     }
     
+    public void setDate(Date date) {
+        this.date = date;
+    }
+    
     public String toString() {
-        return name + ": " + quantity;
+        return date + " " + name + ": " + quantity;
     }
 }

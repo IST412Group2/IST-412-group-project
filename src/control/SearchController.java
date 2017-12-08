@@ -12,17 +12,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TextField;
 
-public class EnterMoodController implements Initializable {
-    @FXML
-    private TextField enterDateField;
-    @FXML
-    private TextField enterTimeField;
-    @FXML
-    private TextField enterMoodField;
-
+public class SearchController implements Initializable {
+    
     /**
      * Initializes the controller class.
      * @param url The location to resolve relative paths of resources.
@@ -32,27 +24,22 @@ public class EnterMoodController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     }    
     
-    // handler for the 'back' button
-    public void handleBack(ActionEvent event) throws IOException{
+    /**
+     * Handles the Back button by loading the Nav view
+     * and setting it as the root scene node.
+     * @param event The button click event.
+     * @throws java.io.IOException
+     */
+    @FXML
+    public void handleBack(ActionEvent event) throws IOException {
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Nav.fxml")));
     }
     
     // handler for the 'next' button
     public void handleNext(ActionEvent event) throws IOException{
-        try {
-            new AddMoodCommand(enterDateField.getText() + " " + enterTimeField.getText(), enterMoodField.getText()).execute();
-            Alert alert = new Alert(AlertType.INFORMATION, "Information");
-            alert.setContentText("Mood added");
-            alert.showAndWait();
-            //if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
-            //    handleBack(event);
-            //}
-            app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterMood.fxml")));
-        } catch (ParseException ex) {
-            new Alert(AlertType.ERROR, "Invalid date/time format").showAndWait();
-        }
-    }
         
+    }
+    
     /**
      * Handles the color button by choosing a color background.
      * @param event The button click event.

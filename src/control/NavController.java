@@ -5,7 +5,6 @@ import control.commands.MonoCommand;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,27 +61,38 @@ public class NavController implements Initializable {
     }
     
     /**
-     * Handles the Review Existing Data types nav button by loading the Data Correlation view
+     * Handles the Review Existing Data nav button by loading the Review Data view
      * and setting it as the root scene node.
      * @param event The button click event.
      * @throws java.io.IOException
      */
     @FXML
-    public void presentDataCorrelation(ActionEvent event) throws IOException {
+    public void presentReviewData(ActionEvent event) throws IOException {
         app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/ReviewData.fxml")));
     }
     
     /**
-     * Handles the settings nav button by loading the settings view and setting
+     * Handles the Check Correlations nav button by loading the Data Correlation view
+     * and setting it as the root scene node.
+     * @param event The button click event.
+     * @throws java.io.IOException
+     */
+    @FXML
+    public void presentCheckCorrelations(ActionEvent event) throws IOException {
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/CheckCorrelations.fxml")));
+    }
+    
+    /**
+     * Handles the Search nav button by loading the Search view and setting
      * it as the root scene node.
      * @param event The button click event.
      * @throws java.io.IOException
      */
     @FXML
-    public void presentSettings(ActionEvent event) throws IOException {
-        //FoodMood_M03_A04.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Settings.fxml")));
+    public void presentSearch(ActionEvent event) throws IOException {
+        app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/Search.fxml")));
     }
-
+    
     /**
      * Handles the quit button by shutting down the JavaFX platform.
      * @param event The button click event.

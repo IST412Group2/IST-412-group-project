@@ -47,9 +47,9 @@ public class User implements Serializable{
     public void addFood(Food food) {
         foodsEaten.addFood(food);
     }
-    public void addDate(LocalDate date) {
-        foodsEaten.addDate(date);
-    }
+    //public void addDate(LocalDate date) {
+    //    foodsEaten.addDate(date);
+    //}
     /**
      * Add a new mood to the user's history.
      * 

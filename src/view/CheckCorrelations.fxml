@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.NavController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="control.CheckCorrelationsController">
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="0.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
          <children>
@@ -29,14 +32,16 @@
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" spacing="4.0">
+            <Button mnemonicParsing="false" onAction="#handleBack" text="Back" />
+            <VBox>
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#presentEnterFood" text="Enter Food" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#presentEnterMood" text="Enter Mood" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#presentReviewData" text="Review Existing Data" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#presentCheckCorrelations" text="Check Correlations" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#presentSearch" text="Search " />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleQuit" text="Quit" />
+                  <Label text="Correlations" textFill="WHITE" />
+                  <TableView fx:id="foodTable" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="colFood" prefWidth="75.0" text="Food" />
+                      <TableColumn fx:id="colMood" editable="false" prefWidth="75.0" text="Mood" />
+                    </columns>
+                  </TableView>
                </children>
             </VBox>
          </children>

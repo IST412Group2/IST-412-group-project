@@ -36,8 +36,9 @@
             <VBox>
                <children>
                   <Label text="History of foods eaten" textFill="WHITE" />
-                  <TableView fx:id="foodTable" prefWidth="200.0">
+                  <TableView fx:id="foodTable" prefHeight="171.0" prefWidth="245.0">
                     <columns>
+                        <TableColumn fx:id="colFoodDate" prefWidth="75.0" text="Date" />
                       <TableColumn fx:id="colFoodName" prefWidth="75.0" text="Name" />
                       <TableColumn fx:id="colQuantity" editable="false" prefWidth="75.0" text="Quantity" />
                     </columns>
@@ -45,6 +46,7 @@
                   <Label text="History of moods felt" textFill="WHITE" />
                   <TableView fx:id="moodTable" prefWidth="200.0">
                      <columns>
+                        <TableColumn fx:id="colMoodDate" prefWidth="75.0" text="Date" />
                         <TableColumn fx:id="colMoodName" prefWidth="75.0" text="Name" />
                      </columns>
                   </TableView>

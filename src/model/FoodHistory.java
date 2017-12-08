@@ -1,29 +1,27 @@
 package model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class FoodHistory implements Serializable{
     private ObservableList<Food> listOfFoods;
-    private ArrayList<LocalDate> listOfDatesEaten;
+    //private ArrayList<LocalDate> listOfDatesEaten;
     
     public FoodHistory() {
         listOfFoods = FXCollections.observableArrayList();
-        listOfDatesEaten = new ArrayList<LocalDate>();
+        //listOfDatesEaten = new ArrayList<LocalDate>();
     }
     
     public ObservableList<Food> addFood(Food food) {
         listOfFoods.add(food);
         return listOfFoods;
     }
-     public ArrayList<LocalDate> addDate(LocalDate date) {
-        listOfDatesEaten.add(date);
-        return listOfDatesEaten;
-    }
+    //public ArrayList<LocalDate> addDate(LocalDate date) {
+        //listOfDatesEaten.add(date);
+        //return listOfDatesEaten;
+    //}
     
     /**
      * @return the listOfFoods
@@ -42,16 +40,16 @@ public class FoodHistory implements Serializable{
     /**
      * @return the listOfDatesEaten
      */
-    public ArrayList<LocalDate> getListOfDatesEaten() {
-        return listOfDatesEaten;
-    }
+    //public ArrayList<LocalDate> getListOfDatesEaten() {
+    //    return listOfDatesEaten;
+    //}
 
     /**
      * @param listOfDatesEaten the listOfDatesEaten to set
      */
-    public void setListOfDatesEaten(ArrayList<LocalDate> listOfDatesEaten) {
-        this.listOfDatesEaten = listOfDatesEaten;
-    }
+    //public void setListOfDatesEaten(ArrayList<LocalDate> listOfDatesEaten) {
+    //    this.listOfDatesEaten = listOfDatesEaten;
+    //}
     
     public String toString() {
         String ret = "";

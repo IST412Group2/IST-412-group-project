@@ -4,7 +4,6 @@ import control.commands.ColorCommand;
 import control.commands.MonoCommand;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,25 +11,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import model.Food;
 import model.Mood;
 
-public class ReviewDataController implements Initializable {
+public class CheckCorrelationsController implements Initializable {
     @FXML
     private TableView<Food> foodTable;
     @FXML 
-    TableColumn colFoodDate;
-    @FXML 
-    TableColumn colFoodName;
+    TableColumn colFood;
     @FXML
-    TableColumn colQuantity;
-    @FXML
-    private TableView<Mood> moodTable;
-    @FXML 
-    TableColumn colMoodDate;
-    @FXML 
-    TableColumn colMoodName;
+    TableColumn colMood;
     
     /**
      * Initializes the controller class.
@@ -39,14 +29,6 @@ public class ReviewDataController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //table = new TableView<Food>(app.currentUser.getFoodsEaten().getListOfFoods());
-        foodTable.getItems().addAll(app.currentUser.getFoodsEaten().getListOfFoods());
-        colFoodDate.setCellValueFactory(new PropertyValueFactory<Food,Date>("date"));
-        colFoodName.setCellValueFactory(new PropertyValueFactory<Food,String>("name"));
-        colQuantity.setCellValueFactory(new PropertyValueFactory<Food,Double>("quantity"));
-        moodTable.getItems().addAll(app.currentUser.getMoodsFelt().getListOfMoods());
-        colMoodDate.setCellValueFactory(new PropertyValueFactory<Mood,Date>("date"));
-        colMoodName.setCellValueFactory(new PropertyValueFactory<Mood,String>("name"));
     }    
     
     /**
