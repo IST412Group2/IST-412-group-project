@@ -2,10 +2,15 @@ package control;
 
 import control.commands.ColorCommand;
 import control.commands.MonoCommand;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,7 +52,17 @@ public class ReviewDataController implements Initializable {
         moodTable.getItems().addAll(app.currentUser.getMoodsFelt().getListOfMoods());
         colMoodDate.setCellValueFactory(new PropertyValueFactory<Mood,Date>("date"));
         colMoodName.setCellValueFactory(new PropertyValueFactory<Mood,String>("name"));
-    }    
+    } 
+    
+    public void getPersisFoodData(){
+        String s = "./"+app.currentUser.getUsername()+"FoodMood.txt";
+        try{
+            File file = new File(s);
+            Scanner sncr = new Scanner(file);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
     
     /**
      * Handles the Back button by loading the Nav view
