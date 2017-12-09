@@ -9,6 +9,8 @@ public class Food implements Serializable{
     private SimpleStringProperty name;
     private SimpleDoubleProperty quantity;
     private Date date;
+    private Mood mood;
+    private String moodName;
 
     /* 
      *CONSTRUCTORS
@@ -55,7 +57,13 @@ public class Food implements Serializable{
     public Date getDate() {
         return date;
     }
+    public Mood getMood(){
+        return mood;
+    }
     
+    public String getMoodName(){
+        return moodName;
+    }
     /*
      * SETTERS
     */
@@ -69,6 +77,14 @@ public class Food implements Serializable{
     
     public void setDate(Date date) {
         this.date = date;
+    }
+    
+    public void setMood(Mood mood){
+        this.mood = mood;
+    }
+    
+    public void setMoodName(String moodName){
+        this.moodName = mood.getName();
     }
     
     public String toString() {

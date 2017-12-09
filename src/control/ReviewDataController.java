@@ -3,6 +3,7 @@ package control;
 import control.commands.ColorCommand;
 import control.commands.MonoCommand;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Food;
 import model.Mood;
+import org.json.simple.JSONObject;
 
 public class ReviewDataController implements Initializable {
     @FXML
@@ -54,15 +56,6 @@ public class ReviewDataController implements Initializable {
         colMoodName.setCellValueFactory(new PropertyValueFactory<Mood,String>("name"));
     } 
     
-    public void getPersisFoodData(){
-        String s = "./"+app.currentUser.getUsername()+"FoodMood.txt";
-        try{
-            File file = new File(s);
-            Scanner sncr = new Scanner(file);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-    }
     
     /**
      * Handles the Back button by loading the Nav view

@@ -36,10 +36,19 @@
             <VBox>
                <children>
                   <Label text="Correlations" textFill="WHITE" />
-                  <TableView fx:id="foodTable" prefWidth="200.0">
+                  <TableView fx:id="foodTable" prefWidth="100.0">
                     <columns>
-                      <TableColumn fx:id="colFood" prefWidth="75.0" text="Food" />
-                      <TableColumn fx:id="colMood" editable="false" prefWidth="75.0" text="Mood" />
+                      <TableColumn fx:id="colFood" prefWidth="100.0" text="Food" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Label text="Correlations" textFill="WHITE" />
+                  <TableView fx:id="moodTable" prefWidth="100.0">
+                    <columns>
+                      <TableColumn fx:id="colMood" editable="false" prefWidth="100.0" text="Mood" />
                     </columns>
                   </TableView>
                </children>

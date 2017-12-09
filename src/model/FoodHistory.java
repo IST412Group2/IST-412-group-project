@@ -37,19 +37,6 @@ public class FoodHistory implements Serializable{
         this.listOfFoods = listOfFoods;
     }
 
-    /**
-     * @return the listOfDatesEaten
-     */
-    //public ArrayList<LocalDate> getListOfDatesEaten() {
-    //    return listOfDatesEaten;
-    //}
-
-    /**
-     * @param listOfDatesEaten the listOfDatesEaten to set
-     */
-    //public void setListOfDatesEaten(ArrayList<LocalDate> listOfDatesEaten) {
-    //    this.listOfDatesEaten = listOfDatesEaten;
-    //}
     
     public String toString() {
         String ret = "";

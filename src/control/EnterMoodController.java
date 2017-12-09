@@ -65,9 +65,6 @@ public class EnterMoodController implements Initializable {
             Alert alert = new Alert(AlertType.INFORMATION, "Information");
             alert.setContentText("Mood added");
             alert.showAndWait();
-            //if (!alert.isShowing()) {//alert.getResult() == ButtonType.OK) {
-            //    handleBack(event);
-            //}
             app.scene.setRoot(FXMLLoader.load(getClass().getResource("/view/EnterMood.fxml")));
         } catch (ParseException ex) {
             new Alert(AlertType.ERROR, "Invalid date/time format").showAndWait();
@@ -91,41 +88,4 @@ public class EnterMoodController implements Initializable {
     public void handleMono(ActionEvent event) {
         new MonoCommand().execute();
     }
-    
-    /*public void appendJUser(String name, String username, String password, String fDate, String food, 
-            double quantity, String mDate, String mood ){
-        jUser.put("Username", username);
-        jUser.put("Name", name);
-        jUser.put("Password", password);
-        jUser.put("Food Date", fDate);
-        jUser.put("Food", food);
-        jUser.put("Quantity", quantity);
-        jUser.put("Mood Date", mDate);
-        jUser.put("Mood", mood);
-        
-        jUsers.add(jUser);
-    }
-    
-    public boolean moodFileBuilder() throws org.json.simple.parser.ParseException{
-        boolean fileCheck = true;    
-        try{    
-            String s = "./"+app.currentUser.getUsername()+app.currentUser.toString().length()+"food.txt";
-            File file = new File(s);
-            if(file.exists()){
-                fileCheck = false;
-            }
-            else{
-                app.write(jUsers.toJSONString(), file);
-            }
-        }
-        catch(FileNotFoundException ex){
-            System.out.println(ex.toString());
-        }
-        catch(IOException ex){
-            System.out.println(ex.toString());
-        }
-        return fileCheck;
-        
-        
-    }*/
 }
